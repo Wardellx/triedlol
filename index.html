@@ -528,7 +528,7 @@ function runAway() {
   const wrapRect = wrap.getBoundingClientRect();
   const bw = btn.offsetWidth, bh = btn.offsetHeight;
   const maxX = wrapRect.width - bw;
-  const maxY = wrapRect.height - bh;
+  const maxY = (wrapRect.height - bh) * 0.55; // only top 55% — never reaches yes btn
 
   let nx, ny, tries = 0;
   const cur = { x: parseInt(btn.style.left)||0, y: parseInt(btn.style.top)||0 };
@@ -634,12 +634,12 @@ function sayYes() {
 #ask-wrap {
   position:relative;
   width: min(340px, 90vw);
-  height:200px;
+  height:240px;
   margin:10px auto 0;
 }
 
 .ask-yes {
-  position:absolute; bottom:20px; left:50%; transform:translateX(-50%);
+  position:absolute; bottom:16px; left:50%; transform:translateX(-50%);
   padding:15px 44px; border-radius:50px; border:none; cursor:pointer;
   background:linear-gradient(135deg,#ff9a5c,#e05c30);
   color:white; font-family:'DM Sans',sans-serif;
